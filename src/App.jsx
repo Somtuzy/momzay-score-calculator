@@ -31,6 +31,7 @@ function App() {
   const handleManualSumChange = (event) => {
     const sum = event.target.value;
     setManualSum(sum);
+    setScores([])
     calculateFinalScore();
   };
 
