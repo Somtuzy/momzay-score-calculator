@@ -16,6 +16,7 @@ function App() {
     const newScore = event.target.value;
     if (newScore.length <= 2) {
       setCurrentScore(newScore);
+      setManualSum("");
       if (newScore.length === 2) {
         // Automatically add the score to the list when it reaches two digits
         addScore(parseFloat(newScore));
@@ -60,6 +61,15 @@ function App() {
       <h1>Welcome To Momzay's Score Calculator</h1>
       <hr />
       <div>
+        <div>
+        <button
+      onClick={()=>{
+        setScores([]);
+        setManualSum("");
+        setCurrentScore("");
+        setFinalScore("");
+      }}>Refresh</button>
+        </div>
         <h2>Input Scores Per Section</h2>
         <ul className="score-list">
           {scores.map((score, index) => (
