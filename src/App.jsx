@@ -14,13 +14,25 @@ function App() {
 
   const handleScoreChange = (event) => {
     const newScore = event.target.value;
-    if (newScore.length <= 2) {
-      setCurrentScore(newScore);
-      setManualSum("");
-      if (newScore.length === 2) {
-        // Automatically add the score to the list when it reaches two digits
-        addScore(parseFloat(newScore));
+
+    if (newScore.includes(".")) {
+      if (newScore.length <= 3) {
+        setCurrentScore(newScore);
+        setManualSum("");
+        if (newScore.length === 3) {
+          // Automatically add the score to the list when it reaches two digits
+          addScore(parseFloat(newScore));
+        }
       }
+    } else {
+        if (newScore.length <= 2) {
+          setCurrentScore(newScore);
+          setManualSum("");
+          if (newScore.length === 2) {
+            // Automatically add the score to the list when it reaches two digits
+            addScore(parseFloat(newScore));
+          }
+        }
     }
   };
 
@@ -32,7 +44,7 @@ function App() {
   const handleManualSumChange = (event) => {
     const sum = event.target.value;
     setManualSum(sum);
-    setScores([])
+    setScores([]);
     calculateFinalScore();
   };
 
@@ -62,13 +74,16 @@ function App() {
       <hr />
       <div>
         <div>
-        <button
-      onClick={()=>{
-        setScores([]);
-        setManualSum("");
-        setCurrentScore("");
-        setFinalScore("");
-      }}>Refresh</button>
+          <button
+            onClick={() => {
+              setScores([]);
+              setManualSum("");
+              setCurrentScore("");
+              setFinalScore("");
+            }}
+          >
+            Refresh
+          </button>
         </div>
         <h2>Input Scores Per Section</h2>
         <ul className="score-list">
@@ -92,10 +107,10 @@ function App() {
       </div>
       <br />
       <div>
-      <h3>OR</h3>
+        <h3>OR</h3>
       </div>
       <br />
-      
+
       <div>
         <h2>Input Sum Of All Sections</h2>
         <input
