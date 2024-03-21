@@ -110,6 +110,8 @@ function App() {
       <div>
         <h2>Student's Final Score</h2>
         <p>{finalScore}</p>
+        <h2>Student's Recorded Final Score</h2>
+        <p>{Math.round(finalScore)}</p>
       </div>
     </div>
   );
