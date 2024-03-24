@@ -124,7 +124,7 @@ function App() {
       <hr />
       <div>
         <h2>Sum Of Scores For All Sections</h2>
-        <p>{(finalScore/70) * 240}</p>
+        <p>{Math.round((finalScore/70) * 240)}</p>
         <h2>Student's Final Score In Decimal</h2>
         <p>{finalScore}</p>
         <h2>Student's Final Score</h2>
